@@ -1,0 +1,19 @@
+Java Package Structure (src/main/java):
+
+edu/
+└── zzttc/
+    └── backend/
+        ├── aop/
+        ├── config/
+        ├── controller/
+        ├── domain/
+        ├── exception/
+        ├── filter/
+        ├── listener/
+        ├── mapper/
+        ├── service/
+        ├── utils/
+        └── BackendApplication.java
+
+Total packages: 10
+Main application: BackendApplication.java

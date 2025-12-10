@@ -1,0 +1,95 @@
+spring:
+  ai:
+    dashscope:
+      api-key: sk-8771c1ef9e09427cbfec64b4265bb443
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      chat:
+        options:
+          model: qwen3-vl-plus
+          multi-model: true
+  security:
+    filter:
+      order: -100
+    jwt:
+      key: allformir.z
+      expire: 7
+  datasource:
+    url: jdbc:mysql://localhost:3306/bootvuejwt
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: 18784626921@163.com
+    password: HHdJ8gtAC9xFPLHU
+    protocol: smtps
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+    from-name: NextClass智课表
+  rabbitmq:
+    addresses: localhost
+    username: root
+    password: 1234
+    virtual-host: /
+    listener:
+      simple:
+        deserialization:
+          trust:
+            all: true
+        default-requeue-rejected: false
+        acknowledge-mode: auto
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+logging:
+  level:
+    org.springframework.amqp: DEBUG
+    org.springframework.mail: DEBUG
+  charset:
+    console: UTF-8    # 控制台输出使用 UTF-8
+    file: UTF-8       # 配日志文件使用 UTF-8
+
+server:
+  port: 8080
+  # 大模型对话中文乱码UTF8编码处理
+  servlet:
+    encoding:
+      enabled: true
+      force: true
+      charset: UTF-8
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+schedule:
+  upload-dir: F:/base-code/uploads/schedule
+
+
