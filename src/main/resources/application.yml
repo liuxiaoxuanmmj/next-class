@@ -24,21 +24,21 @@ spring:
       port: 6379
       database: 0
   mail:
-    host: smtp.163.com
-    port: 465
-    username: 18784626921@163.com
-    password: HHdJ8gtAC9xFPLHU
-    protocol: smtps
+    host: ${MAIL_HOST:smtp.163.com}
+    port: ${MAIL_PORT:465}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    protocol: ${MAIL_PROTOCOL:smtps}
     default-encoding: UTF-8
     properties:
       mail:
         smtp:
-          auth: true
+          auth: ${MAIL_SMTP_AUTH:true}
           ssl:
-            enable: true
+            enable: ${MAIL_SMTP_SSL_ENABLE:true}
           socketFactory:
             class: javax.net.ssl.SSLSocketFactory
-    from-name: NextClass智课表
+    from-name: ${MAIL_FROM_NAME:NextClass智课表}
   rabbitmq:
     addresses: localhost
     username: root
